@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Word extends Model
+class Category extends Model
 {
     protected $fillable = [
-        'title', 'translate' , 'user_id' , 'language_id'
+        'title', 'user_id' , 'language_id'
     ];
 
     public function user(){
@@ -18,7 +18,8 @@ class Word extends Model
         return $this->belongsTo('App\Language');
     }
 
-    public function categories(){
-        return $this->belongsToMany('App\Category' , 'category_word');
+    public function words(){
+        return $this->belongsToMany('App\Word' , 'category_word');
     }
+
 }

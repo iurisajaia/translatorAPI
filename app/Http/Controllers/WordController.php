@@ -64,8 +64,13 @@ class WordController extends Controller{
     }
 
 
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+       $word = Word::find($id);
+
+       if(!$word){
+          return response()->json(['error' => 'No Word Found'] , 401);
+       }
+
+       $word->delete();
     }
 }

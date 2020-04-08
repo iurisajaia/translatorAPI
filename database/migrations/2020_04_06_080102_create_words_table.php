@@ -15,10 +15,10 @@ class CreateWordsTable extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->id();
-            $table->string('word');
-            $table->string('translate')->nullable();
-            $table->string('language_id');
-            $table->boolean('status')->default(0);
+            $table->string('title');
+            $table->string('translate');
+            $table->integer('user_id');
+            $table->integer('language_id');
             $table->timestamps();
         });
     }
